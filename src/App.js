@@ -1,23 +1,35 @@
-import logo from './logo.svg';
 import './App.css';
+import React, { useState, useEffect } from 'react';
 
 function App() {
+  const [quote, setquote] = useState('');
+  const [author, setauthor] = useState('');
+  const [bg, setbg] = useState('https://source.unsplash.com/random/?city,night');
+  const update = async () => {
+    let api = 'https://api.quotable.io/random';
+    let data = await fetch(api);
+    let parseddata = await data.json();
+    setquote(parseddata.content);
+    setauthor(parseddata.author);
+    console.log(parseddata.content);
+    // setbg('https://source.unsplash.com/random/?city,night');
+  }
+  useEffect(() => {
+    update();
+  }, []);
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <div className="card">
+        <h3 className="advice">
+          {quote}
+        </h3>
+        <h6 id="author">-{author}</h6>
+        <div className="button">
+          <button className="bubbly-button" onClick={update}>Quote
+          </button>
+        </div>
+      </div>
     </div>
   );
 }
