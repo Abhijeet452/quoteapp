@@ -4,7 +4,7 @@ import React, { useState, useEffect } from 'react';
 function App() {
   const [quote, setquote] = useState('');
   const [author, setauthor] = useState('');
-  const [bg, setbg] = useState('https://source.unsplash.com/random/?city,night');
+  // const [bg, setbg] = useState('https://source.unsplash.com/random/?city,night');
   const update = async () => {
     let api = 'https://api.quotable.io/random';
     let data = await fetch(api);
