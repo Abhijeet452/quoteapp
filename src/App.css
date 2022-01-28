@@ -123,14 +123,15 @@ h3 {
  }
 }
 
-@media only screen and (max-width: 390px){
+@media only screen and (max-width: 500px){
   .card{
     width: 90%;
     height: auto;
+    /* height: auto; */
   }
   h3{
     font-size:1.65em;
-    padding:0rem 1rem;
+    padding:1rem 1rem;
     margin: 1rem 0rem;
   }
   h6{
